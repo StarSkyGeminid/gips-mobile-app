@@ -63,7 +63,7 @@ class AppTheme {
     ),
     appBarTheme: AppBarTheme(
       systemOverlayStyle: SystemUiOverlayStyle.light,
-      backgroundColor: AppColor.purple,
+      backgroundColor: AppColor.white,
       foregroundColor: AppColor.primaryColor,
       elevation: 0,
       toolbarHeight: 80,

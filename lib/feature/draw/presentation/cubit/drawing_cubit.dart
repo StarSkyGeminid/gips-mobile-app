@@ -192,6 +192,7 @@ class DrawingCubit extends Cubit<DrawingState> {
           final gameRoom = GameRoom.fromJson(jsonResponse["game_room"]);
           emit(state.copyWith(
             gameRoom: gameRoom,
+            isDrawing: gameRoom.currentPlayer?.username == username,
             drawingPoints: gameRoom.currentDrawingPoint,
             historyDrawingPoints: gameRoom.currentDrawingPoint,
           ));
@@ -225,6 +226,7 @@ class DrawingCubit extends Cubit<DrawingState> {
           final gameRoom = GameRoom.fromJson(jsonResponse["game_room"]);
           emit(state.copyWith(
             gameRoom: gameRoom,
+            isDrawing: gameRoom.currentPlayer?.username == username,
           ));
         }
 
@@ -232,6 +234,7 @@ class DrawingCubit extends Cubit<DrawingState> {
           final gameRoom = GameRoom.fromJson(jsonResponse["game_room"]);
           emit(state.copyWith(
             gameRoom: gameRoom,
+            isDrawing: gameRoom.currentPlayer?.username == username,
             drawingPoints: [],
             historyDrawingPoints: [],
           ));
@@ -241,6 +244,7 @@ class DrawingCubit extends Cubit<DrawingState> {
           final gameRoom = GameRoom.fromJson(jsonResponse["game_room"]);
           emit(state.copyWith(
             gameRoom: gameRoom,
+            isDrawing: gameRoom.currentPlayer?.username == username,
             drawingPoints: gameRoom.currentDrawingPoint,
             historyDrawingPoints: gameRoom.currentDrawingPoint,
           ));
@@ -250,6 +254,7 @@ class DrawingCubit extends Cubit<DrawingState> {
           final gameRoom = GameRoom.fromJson(jsonResponse["game_room"]);
           emit(state.copyWith(
             gameRoom: gameRoom,
+            isDrawing: gameRoom.currentPlayer?.username == username,
             isFinished: false,
             drawingPoints: gameRoom.currentDrawingPoint,
             historyDrawingPoints: gameRoom.currentDrawingPoint,
@@ -260,6 +265,7 @@ class DrawingCubit extends Cubit<DrawingState> {
           final gameRoom = GameRoom.fromJson(jsonResponse["game_room"]);
           emit(state.copyWith(
             gameRoom: gameRoom,
+            isDrawing: gameRoom.currentPlayer?.username == username,
             isFinished: true,
             drawingPoints: gameRoom.currentDrawingPoint,
             historyDrawingPoints: gameRoom.currentDrawingPoint,

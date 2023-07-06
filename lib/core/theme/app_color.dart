@@ -13,6 +13,7 @@ class AppColor {
   static const Color purple = Color(0xFF7B38D0);
   static const Color grey = Color(0xFFC6C6C6);
   static const Color red = Color(0xFFA73131);
+  static const Color green = Color(0xFF28A15D);
 
   static MaterialColor primarySwatch = const MaterialColor(
     0xFF11253d,

@@ -9,11 +9,14 @@ class RoomModel<T> {
   int? totalPlayer;
   @JsonKey(name: 'maxPlayers')
   int? maxPlayer;
+  @JsonKey(name: 'duration')
+  int? duration;
 
   RoomModel({
     this.id,
     this.totalPlayer = 0,
     this.maxPlayer = 0,
+    this.duration = 30,z
   });
 
   factory RoomModel.fromJson(Map<String, dynamic> json) =>

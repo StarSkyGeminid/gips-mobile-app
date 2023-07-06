@@ -7,6 +7,7 @@ class DrawingState with _$DrawingState {
     @Default([]) List<DrawingPoint> drawingPoints,
     @Default(false) bool isFinished,
     GameRoom? gameRoom,
+    @Default(false) isDrawing,
     @Default([]) List<AnswerModel> answers,
   }) = _DrawingState;
 }

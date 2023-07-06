@@ -7,7 +7,8 @@ class CreateRoomState with _$CreateRoomState {
     @Default(BlocStatus.initial) BlocStatus createStatus,
     @Default(BlocStatus.initial) BlocStatus joinStatus,
     @Default(SettingsModel.empty) SettingsModel settings,
-    String? errorMessage,
     @Default([]) List<String> themes,
+    String? errorMessage,
+    @Default(30) int selectedTimer,
   }) = _CreateRoomState;
 }

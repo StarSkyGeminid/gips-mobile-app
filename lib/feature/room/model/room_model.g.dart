@@ -10,6 +10,7 @@ RoomModel<T> _$RoomModelFromJson<T>(Map<String, dynamic> json) => RoomModel<T>(
       id: json['id'] as String?,
       totalPlayer: json['totalPlayers'] as int? ?? 0,
       maxPlayer: json['maxPlayers'] as int? ?? 0,
+      duration: json['duration'] as int? ?? 30,
     );
 
 Map<String, dynamic> _$RoomModelToJson<T>(RoomModel<T> instance) =>
@@ -17,4 +18,5 @@ Map<String, dynamic> _$RoomModelToJson<T>(RoomModel<T> instance) =>
       'id': instance.id,
       'totalPlayers': instance.totalPlayer,
       'maxPlayers': instance.maxPlayer,
+      'duration': instance.duration,
     };

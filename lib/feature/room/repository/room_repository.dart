@@ -3,5 +3,5 @@ import 'package:gips/feature/room/model/room_model.dart';
 
 abstract class RoomRepository {
   Future<BaseResponse<List<RoomModel>>> getRooms();
-  Future<BaseResponse> joinRoom(String id, String username);
+  Future<BaseResponse<RoomModel>> joinRoom(String id, String username);
 }

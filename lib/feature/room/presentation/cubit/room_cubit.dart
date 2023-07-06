@@ -40,6 +40,7 @@ class RoomCubit extends Cubit<RoomState> {
         emit(state.copyWith(
           joinStatus: BlocStatus.success,
           roomId: id,
+          duration: result.data?.duration,
           errorMessage: null,
         ));
       } else {

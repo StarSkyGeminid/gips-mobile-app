@@ -20,8 +20,9 @@ mixin _$CreateRoomState {
   BlocStatus get createStatus => throw _privateConstructorUsedError;
   BlocStatus get joinStatus => throw _privateConstructorUsedError;
   SettingsModel get settings => throw _privateConstructorUsedError;
-  String? get errorMessage => throw _privateConstructorUsedError;
   List<String> get themes => throw _privateConstructorUsedError;
+  String? get errorMessage => throw _privateConstructorUsedError;
+  int? get selectedTimer => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $CreateRoomStateCopyWith<CreateRoomState> get copyWith =>
@@ -39,8 +40,9 @@ abstract class $CreateRoomStateCopyWith<$Res> {
       BlocStatus createStatus,
       BlocStatus joinStatus,
       SettingsModel settings,
+      List<String> themes,
       String? errorMessage,
-      List<String> themes});
+      int? selectedTimer});
 
   $SettingsModelCopyWith<$Res> get settings;
 }
@@ -62,8 +64,9 @@ class _$CreateRoomStateCopyWithImpl<$Res, $Val extends CreateRoomState>
     Object? createStatus = null,
     Object? joinStatus = null,
     Object? settings = null,
-    Object? errorMessage = freezed,
     Object? themes = null,
+    Object? errorMessage = freezed,
+    Object? selectedTimer = freezed,
   }) {
     return _then(_value.copyWith(
       status: null == status
@@ -82,14 +85,18 @@ class _$CreateRoomStateCopyWithImpl<$Res, $Val extends CreateRoomState>
           ? _value.settings
           : settings // ignore: cast_nullable_to_non_nullable
               as SettingsModel,
-      errorMessage: freezed == errorMessage
-          ? _value.errorMessage
-          : errorMessage // ignore: cast_nullable_to_non_nullable
-              as String?,
       themes: null == themes
           ? _value.themes
           : themes // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      errorMessage: freezed == errorMessage
+          ? _value.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String?,
+      selectedTimer: freezed == selectedTimer
+          ? _value.selectedTimer
+          : selectedTimer // ignore: cast_nullable_to_non_nullable
+              as int?,
     ) as $Val);
   }
 
@@ -115,8 +122,9 @@ abstract class _$$_CreateRoomStateCopyWith<$Res>
       BlocStatus createStatus,
       BlocStatus joinStatus,
       SettingsModel settings,
+      List<String> themes,
       String? errorMessage,
-      List<String> themes});
+      int? selectedTimer});
 
   @override
   $SettingsModelCopyWith<$Res> get settings;
@@ -137,8 +145,9 @@ class __$$_CreateRoomStateCopyWithImpl<$Res>
     Object? createStatus = null,
     Object? joinStatus = null,
     Object? settings = null,
-    Object? errorMessage = freezed,
     Object? themes = null,
+    Object? errorMessage = freezed,
+    Object? selectedTimer = freezed,
   }) {
     return _then(_$_CreateRoomState(
       status: null == status
@@ -157,14 +166,18 @@ class __$$_CreateRoomStateCopyWithImpl<$Res>
           ? _value.settings
           : settings // ignore: cast_nullable_to_non_nullable
               as SettingsModel,
-      errorMessage: freezed == errorMessage
-          ? _value.errorMessage
-          : errorMessage // ignore: cast_nullable_to_non_nullable
-              as String?,
       themes: null == themes
           ? _value._themes
           : themes // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      errorMessage: freezed == errorMessage
+          ? _value.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String?,
+      selectedTimer: freezed == selectedTimer
+          ? _value.selectedTimer
+          : selectedTimer // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -177,8 +190,9 @@ class _$_CreateRoomState implements _CreateRoomState {
       this.createStatus = BlocStatus.initial,
       this.joinStatus = BlocStatus.initial,
       this.settings = SettingsModel.empty,
+      final List<String> themes = const [],
       this.errorMessage,
-      final List<String> themes = const []})
+      this.selectedTimer})
       : _themes = themes;
 
   @override
@@ -193,8 +207,6 @@ class _$_CreateRoomState implements _CreateRoomState {
   @override
   @JsonKey()
   final SettingsModel settings;
-  @override
-  final String? errorMessage;
   final List<String> _themes;
   @override
   @JsonKey()
@@ -205,8 +217,13 @@ class _$_CreateRoomState implements _CreateRoomState {
   }
 
   @override
+  final String? errorMessage;
+  @override
+  final int? selectedTimer;
+
+  @override
   String toString() {
-    return 'CreateRoomState(status: $status, createStatus: $createStatus, joinStatus: $joinStatus, settings: $settings, errorMessage: $errorMessage, themes: $themes)';
+    return 'CreateRoomState(status: $status, createStatus: $createStatus, joinStatus: $joinStatus, settings: $settings, themes: $themes, errorMessage: $errorMessage, selectedTimer: $selectedTimer)';
   }
 
   @override
@@ -221,14 +238,23 @@ class _$_CreateRoomState implements _CreateRoomState {
                 other.joinStatus == joinStatus) &&
             (identical(other.settings, settings) ||
                 other.settings == settings) &&
+            const DeepCollectionEquality().equals(other._themes, _themes) &&
             (identical(other.errorMessage, errorMessage) ||
                 other.errorMessage == errorMessage) &&
-            const DeepCollectionEquality().equals(other._themes, _themes));
+            (identical(other.selectedTimer, selectedTimer) ||
+                other.selectedTimer == selectedTimer));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, status, createStatus, joinStatus,
-      settings, errorMessage, const DeepCollectionEquality().hash(_themes));
+  int get hashCode => Object.hash(
+      runtimeType,
+      status,
+      createStatus,
+      joinStatus,
+      settings,
+      const DeepCollectionEquality().hash(_themes),
+      errorMessage,
+      selectedTimer);
 
   @JsonKey(ignore: true)
   @override
@@ -243,8 +269,9 @@ abstract class _CreateRoomState implements CreateRoomState {
       final BlocStatus createStatus,
       final BlocStatus joinStatus,
       final SettingsModel settings,
+      final List<String> themes,
       final String? errorMessage,
-      final List<String> themes}) = _$_CreateRoomState;
+      final int? selectedTimer}) = _$_CreateRoomState;
 
   @override
   BlocStatus get status;
@@ -255,9 +282,11 @@ abstract class _CreateRoomState implements CreateRoomState {
   @override
   SettingsModel get settings;
   @override
+  List<String> get themes;
+  @override
   String? get errorMessage;
   @override
-  List<String> get themes;
+  int? get selectedTimer;
   @override
   @JsonKey(ignore: true)
   _$$_CreateRoomStateCopyWith<_$_CreateRoomState> get copyWith =>

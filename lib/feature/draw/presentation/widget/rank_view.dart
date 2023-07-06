@@ -1,6 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-import 'package:gips/core/theme/app_color.dart';
 import 'package:gips/global/constans.dart';
 
 import '../../model/game_room.dart';
@@ -49,23 +48,13 @@ class RankView extends StatelessWidget {
                       final player = orderedList[index];
                       return Container(
                         padding: const EdgeInsets.all(8),
-                        decoration: BoxDecoration(
-                          color: AppColor.white,
-                          border: Border.all(),
-                        ),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Text(
-                              player.username ?? "-",
-                              style: Theme.of(context).textTheme.titleMedium,
-                            ),
-                            const SizedBox(height: 8),
-                            Text(
-                              "Skor : ${player.score ?? 0}",
-                              style: Theme.of(context).textTheme.bodyMedium,
-                            ),
-                          ],
+                        child: RichText(
+                          text: TextSpan(
+                            children: [
+                              TextSpan(text: player.username ?? "-"),
+                              TextSpan(text: 'Skor : ${player.score ?? 0}'),
+                            ],
+                          ),
                         ),
                       );
                     },
@@ -88,7 +77,9 @@ class RankView extends StatelessWidget {
                         child: Text('Beranda'),
                       ),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
                   ),
                 ),
               ],

@@ -7,6 +7,7 @@ class RoomState with _$RoomState {
     @Default([]) List<RoomModel> rooms,
     @Default(BlocStatus.initial) BlocStatus joinStatus,
     String? roomId,
+    @Default(60) int duration,
     String? errorMessage,
   }) = _RoomState;
 }

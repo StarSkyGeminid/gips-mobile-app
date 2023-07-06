@@ -67,7 +67,7 @@ class _RoomLayoutState extends State<RoomLayout> {
             await Navigator.pushNamed(
               context,
               AppRouteName.drawingRoom,
-              arguments: state.roomId,
+              arguments: [state.roomId, state.duration],
             );
 
             await Future.delayed(const Duration(seconds: 1));

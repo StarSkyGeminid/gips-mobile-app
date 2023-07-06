@@ -55,6 +55,13 @@ class CreateRoomCubit extends Cubit<CreateRoomState> {
     ));
   }
 
+  void setDuration(int value) {
+    emit(state.copyWith(
+      selectedTimer: value,
+      status: BlocStatus.initial,
+    ));
+  }
+
   void createRoom(String username) async {
     emit(state.copyWith(createStatus: BlocStatus.loading));
 

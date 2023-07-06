@@ -21,6 +21,7 @@ mixin _$DrawingState {
   List<DrawingPoint> get drawingPoints => throw _privateConstructorUsedError;
   bool get isFinished => throw _privateConstructorUsedError;
   GameRoom? get gameRoom => throw _privateConstructorUsedError;
+  dynamic get isDrawing => throw _privateConstructorUsedError;
   List<AnswerModel> get answers => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -39,6 +40,7 @@ abstract class $DrawingStateCopyWith<$Res> {
       List<DrawingPoint> drawingPoints,
       bool isFinished,
       GameRoom? gameRoom,
+      dynamic isDrawing,
       List<AnswerModel> answers});
 
   $GameRoomCopyWith<$Res>? get gameRoom;
@@ -61,6 +63,7 @@ class _$DrawingStateCopyWithImpl<$Res, $Val extends DrawingState>
     Object? drawingPoints = null,
     Object? isFinished = null,
     Object? gameRoom = freezed,
+    Object? isDrawing = freezed,
     Object? answers = null,
   }) {
     return _then(_value.copyWith(
@@ -80,6 +83,10 @@ class _$DrawingStateCopyWithImpl<$Res, $Val extends DrawingState>
           ? _value.gameRoom
           : gameRoom // ignore: cast_nullable_to_non_nullable
               as GameRoom?,
+      isDrawing: freezed == isDrawing
+          ? _value.isDrawing
+          : isDrawing // ignore: cast_nullable_to_non_nullable
+              as dynamic,
       answers: null == answers
           ? _value.answers
           : answers // ignore: cast_nullable_to_non_nullable
@@ -113,6 +120,7 @@ abstract class _$$_DrawingStateCopyWith<$Res>
       List<DrawingPoint> drawingPoints,
       bool isFinished,
       GameRoom? gameRoom,
+      dynamic isDrawing,
       List<AnswerModel> answers});
 
   @override
@@ -134,6 +142,7 @@ class __$$_DrawingStateCopyWithImpl<$Res>
     Object? drawingPoints = null,
     Object? isFinished = null,
     Object? gameRoom = freezed,
+    Object? isDrawing = freezed,
     Object? answers = null,
   }) {
     return _then(_$_DrawingState(
@@ -153,6 +162,7 @@ class __$$_DrawingStateCopyWithImpl<$Res>
           ? _value.gameRoom
           : gameRoom // ignore: cast_nullable_to_non_nullable
               as GameRoom?,
+      isDrawing: freezed == isDrawing ? _value.isDrawing! : isDrawing,
       answers: null == answers
           ? _value._answers
           : answers // ignore: cast_nullable_to_non_nullable
@@ -169,6 +179,7 @@ class _$_DrawingState with DiagnosticableTreeMixin implements _DrawingState {
       final List<DrawingPoint> drawingPoints = const [],
       this.isFinished = false,
       this.gameRoom,
+      this.isDrawing = false,
       final List<AnswerModel> answers = const []})
       : _historyDrawingPoints = historyDrawingPoints,
         _drawingPoints = drawingPoints,
@@ -198,6 +209,9 @@ class _$_DrawingState with DiagnosticableTreeMixin implements _DrawingState {
   final bool isFinished;
   @override
   final GameRoom? gameRoom;
+  @override
+  @JsonKey()
+  final dynamic isDrawing;
   final List<AnswerModel> _answers;
   @override
   @JsonKey()
@@ -209,7 +223,7 @@ class _$_DrawingState with DiagnosticableTreeMixin implements _DrawingState {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'DrawingState(historyDrawingPoints: $historyDrawingPoints, drawingPoints: $drawingPoints, isFinished: $isFinished, gameRoom: $gameRoom, answers: $answers)';
+    return 'DrawingState(historyDrawingPoints: $historyDrawingPoints, drawingPoints: $drawingPoints, isFinished: $isFinished, gameRoom: $gameRoom, isDrawing: $isDrawing, answers: $answers)';
   }
 
   @override
@@ -221,6 +235,7 @@ class _$_DrawingState with DiagnosticableTreeMixin implements _DrawingState {
       ..add(DiagnosticsProperty('drawingPoints', drawingPoints))
       ..add(DiagnosticsProperty('isFinished', isFinished))
       ..add(DiagnosticsProperty('gameRoom', gameRoom))
+      ..add(DiagnosticsProperty('isDrawing', isDrawing))
       ..add(DiagnosticsProperty('answers', answers));
   }
 
@@ -237,6 +252,7 @@ class _$_DrawingState with DiagnosticableTreeMixin implements _DrawingState {
                 other.isFinished == isFinished) &&
             (identical(other.gameRoom, gameRoom) ||
                 other.gameRoom == gameRoom) &&
+            const DeepCollectionEquality().equals(other.isDrawing, isDrawing) &&
             const DeepCollectionEquality().equals(other._answers, _answers));
   }
 
@@ -247,6 +263,7 @@ class _$_DrawingState with DiagnosticableTreeMixin implements _DrawingState {
       const DeepCollectionEquality().hash(_drawingPoints),
       isFinished,
       gameRoom,
+      const DeepCollectionEquality().hash(isDrawing),
       const DeepCollectionEquality().hash(_answers));
 
   @JsonKey(ignore: true)
@@ -262,6 +279,7 @@ abstract class _DrawingState implements DrawingState {
       final List<DrawingPoint> drawingPoints,
       final bool isFinished,
       final GameRoom? gameRoom,
+      final dynamic isDrawing,
       final List<AnswerModel> answers}) = _$_DrawingState;
 
   @override
@@ -272,6 +290,8 @@ abstract class _DrawingState implements DrawingState {
   bool get isFinished;
   @override
   GameRoom? get gameRoom;
+  @override
+  dynamic get isDrawing;
   @override
   List<AnswerModel> get answers;
   @override

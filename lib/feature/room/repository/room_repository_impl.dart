@@ -24,7 +24,7 @@ class RoomRepositoryImpl extends RoomRepository {
   }
 
   @override
-  Future<BaseResponse> joinRoom(String id, String username) async {
+  Future<BaseResponse<RoomModel>> joinRoom(String id, String username) async {
     try {
       final result = await client.post(
         "game/$id/join",
@@ -33,7 +33,7 @@ class RoomRepositoryImpl extends RoomRepository {
         },
       );
       return BaseResponse.fromJson(result.data, (json) {
-        return null;
+        return RoomModel.fromJson(json as Map<String, dynamic>);
       });
     } catch (e) {
       rethrow;

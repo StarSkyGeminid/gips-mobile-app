@@ -7,8 +7,11 @@ import 'package:gips/feature/room/repository/room_repository_impl.dart';
 import 'package:get_it/get_it.dart';
 
 class MainModule {
-  static const baseUrl = "http://0.0.0.0:8080/";
-  static const wsUrl = "ws://0.0.0.0:8080/";
+  // static const baseUrl = "http://20.213.83.47:8080/";
+  // static const wsUrl = "ws://20.213.83.47:8090/";
+
+  static const baseUrl = "http://192.168.2.138:8080/";
+  static const wsUrl = "ws://192.168.2.138:8080/";
 
   static Future<void> init() async {
     GetIt.I.registerLazySingleton<Dio>(
