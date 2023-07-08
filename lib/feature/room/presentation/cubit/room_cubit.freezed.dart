@@ -20,7 +20,7 @@ mixin _$RoomState {
   List<RoomModel> get rooms => throw _privateConstructorUsedError;
   BlocStatus get joinStatus => throw _privateConstructorUsedError;
   String? get roomId => throw _privateConstructorUsedError;
-  int? get duration => throw _privateConstructorUsedError;
+  int get duration => throw _privateConstructorUsedError;
   String? get errorMessage => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -38,7 +38,7 @@ abstract class $RoomStateCopyWith<$Res> {
       List<RoomModel> rooms,
       BlocStatus joinStatus,
       String? roomId,
-      int? duration,
+      int duration,
       String? errorMessage});
 }
 
@@ -59,7 +59,7 @@ class _$RoomStateCopyWithImpl<$Res, $Val extends RoomState>
     Object? rooms = null,
     Object? joinStatus = null,
     Object? roomId = freezed,
-    Object? duration = freezed,
+    Object? duration = null,
     Object? errorMessage = freezed,
   }) {
     return _then(_value.copyWith(
@@ -79,10 +79,10 @@ class _$RoomStateCopyWithImpl<$Res, $Val extends RoomState>
           ? _value.roomId
           : roomId // ignore: cast_nullable_to_non_nullable
               as String?,
-      duration: freezed == duration
+      duration: null == duration
           ? _value.duration
           : duration // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       errorMessage: freezed == errorMessage
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
@@ -103,7 +103,7 @@ abstract class _$$_RoomStateCopyWith<$Res> implements $RoomStateCopyWith<$Res> {
       List<RoomModel> rooms,
       BlocStatus joinStatus,
       String? roomId,
-      int? duration,
+      int duration,
       String? errorMessage});
 }
 
@@ -122,7 +122,7 @@ class __$$_RoomStateCopyWithImpl<$Res>
     Object? rooms = null,
     Object? joinStatus = null,
     Object? roomId = freezed,
-    Object? duration = freezed,
+    Object? duration = null,
     Object? errorMessage = freezed,
   }) {
     return _then(_$_RoomState(
@@ -142,10 +142,10 @@ class __$$_RoomStateCopyWithImpl<$Res>
           ? _value.roomId
           : roomId // ignore: cast_nullable_to_non_nullable
               as String?,
-      duration: freezed == duration
+      duration: null == duration
           ? _value.duration
           : duration // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       errorMessage: freezed == errorMessage
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
@@ -162,7 +162,7 @@ class _$_RoomState implements _RoomState {
       final List<RoomModel> rooms = const [],
       this.joinStatus = BlocStatus.initial,
       this.roomId,
-      this.duration,
+      this.duration = 60,
       this.errorMessage})
       : _rooms = rooms;
 
@@ -184,7 +184,8 @@ class _$_RoomState implements _RoomState {
   @override
   final String? roomId;
   @override
-  final int? duration;
+  @JsonKey()
+  final int duration;
   @override
   final String? errorMessage;
 
@@ -232,7 +233,7 @@ abstract class _RoomState implements RoomState {
       final List<RoomModel> rooms,
       final BlocStatus joinStatus,
       final String? roomId,
-      final int? duration,
+      final int duration,
       final String? errorMessage}) = _$_RoomState;
 
   @override
@@ -244,7 +245,7 @@ abstract class _RoomState implements RoomState {
   @override
   String? get roomId;
   @override
-  int? get duration;
+  int get duration;
   @override
   String? get errorMessage;
   @override

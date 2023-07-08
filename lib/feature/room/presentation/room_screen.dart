@@ -37,6 +37,7 @@ class _RoomLayoutState extends State<RoomLayout> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: AppColor.purple,
         centerTitle: true,
         title: Text(
           "Room",

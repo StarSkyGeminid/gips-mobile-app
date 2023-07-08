@@ -22,7 +22,7 @@ mixin _$CreateRoomState {
   SettingsModel get settings => throw _privateConstructorUsedError;
   List<String> get themes => throw _privateConstructorUsedError;
   String? get errorMessage => throw _privateConstructorUsedError;
-  int? get selectedTimer => throw _privateConstructorUsedError;
+  int get selectedTimer => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $CreateRoomStateCopyWith<CreateRoomState> get copyWith =>
@@ -42,7 +42,7 @@ abstract class $CreateRoomStateCopyWith<$Res> {
       SettingsModel settings,
       List<String> themes,
       String? errorMessage,
-      int? selectedTimer});
+      int selectedTimer});
 
   $SettingsModelCopyWith<$Res> get settings;
 }
@@ -66,7 +66,7 @@ class _$CreateRoomStateCopyWithImpl<$Res, $Val extends CreateRoomState>
     Object? settings = null,
     Object? themes = null,
     Object? errorMessage = freezed,
-    Object? selectedTimer = freezed,
+    Object? selectedTimer = null,
   }) {
     return _then(_value.copyWith(
       status: null == status
@@ -93,10 +93,10 @@ class _$CreateRoomStateCopyWithImpl<$Res, $Val extends CreateRoomState>
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
               as String?,
-      selectedTimer: freezed == selectedTimer
+      selectedTimer: null == selectedTimer
           ? _value.selectedTimer
           : selectedTimer // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
     ) as $Val);
   }
 
@@ -124,7 +124,7 @@ abstract class _$$_CreateRoomStateCopyWith<$Res>
       SettingsModel settings,
       List<String> themes,
       String? errorMessage,
-      int? selectedTimer});
+      int selectedTimer});
 
   @override
   $SettingsModelCopyWith<$Res> get settings;
@@ -147,7 +147,7 @@ class __$$_CreateRoomStateCopyWithImpl<$Res>
     Object? settings = null,
     Object? themes = null,
     Object? errorMessage = freezed,
-    Object? selectedTimer = freezed,
+    Object? selectedTimer = null,
   }) {
     return _then(_$_CreateRoomState(
       status: null == status
@@ -174,10 +174,10 @@ class __$$_CreateRoomStateCopyWithImpl<$Res>
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
               as String?,
-      selectedTimer: freezed == selectedTimer
+      selectedTimer: null == selectedTimer
           ? _value.selectedTimer
           : selectedTimer // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
     ));
   }
 }
@@ -192,7 +192,7 @@ class _$_CreateRoomState implements _CreateRoomState {
       this.settings = SettingsModel.empty,
       final List<String> themes = const [],
       this.errorMessage,
-      this.selectedTimer})
+      this.selectedTimer = 30})
       : _themes = themes;
 
   @override
@@ -219,7 +219,8 @@ class _$_CreateRoomState implements _CreateRoomState {
   @override
   final String? errorMessage;
   @override
-  final int? selectedTimer;
+  @JsonKey()
+  final int selectedTimer;
 
   @override
   String toString() {
@@ -271,7 +272,7 @@ abstract class _CreateRoomState implements CreateRoomState {
       final SettingsModel settings,
       final List<String> themes,
       final String? errorMessage,
-      final int? selectedTimer}) = _$_CreateRoomState;
+      final int selectedTimer}) = _$_CreateRoomState;
 
   @override
   BlocStatus get status;
@@ -286,7 +287,7 @@ abstract class _CreateRoomState implements CreateRoomState {
   @override
   String? get errorMessage;
   @override
-  int? get selectedTimer;
+  int get selectedTimer;
   @override
   @JsonKey(ignore: true)
   _$$_CreateRoomStateCopyWith<_$_CreateRoomState> get copyWith =>
